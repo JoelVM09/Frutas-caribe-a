@@ -1,0 +1,384 @@
+:root {
+  --papel: #f7f4ec;
+  --tinta: #282820;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  color: var(--tinta);
+  background: var(--papel);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.6;
+  transition: background .3s, color .3s;
+}
+
+h1,
+h2,
+h3,
+.panel-nombre {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.2;
+}
+
+.app {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 3rem;
+}
+
+.cabecera {
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(40, 40, 32, .2);
+}
+
+.cabecera h1 {
+  padding-top: .5rem;
+  color: var(--o);
+  font-size: clamp(2.4rem, 7vw, 4.5rem);
+}
+
+.cabecera p {
+  max-width: 58ch;
+  margin: .75rem 0 0;
+  font-size: 1.05rem;
+}
+
+.btn-tema {
+  float: right;
+  padding: .35rem .75rem;
+  border: 1px solid var(--o);
+  border-radius: 3px;
+  color: var(--o);
+  background: transparent;
+  font: inherit;
+  cursor: pointer;
+}
+
+.galeria {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.panel {
+  position: relative;
+  min-height: 220px;
+  overflow: hidden;
+  padding: 0;
+  border: 1px solid rgba(40, 40, 32, .25);
+  border-radius: 4px;
+  color: var(--o);
+  background: var(--c);
+  cursor: pointer;
+  text-align: left;
+}
+
+.panel img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .25s ease;
+}
+
+.panel::after {
+  position: absolute;
+  inset: 35% 0 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, .6));
+  content: "";
+}
+
+.panel:hover img,
+.panel.abierto img {
+  transform: scale(1.03);
+}
+
+.panel.abierto {
+  outline: 3px solid var(--o);
+  outline-offset: 2px;
+}
+
+.panel-nombre {
+  position: absolute;
+  z-index: 1;
+  right: .75rem;
+  bottom: .7rem;
+  left: .75rem;
+  color: #fff;
+  font-size: 1.7rem;
+  font-weight: 700;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, .6);
+}
+
+.sello {
+  position: absolute;
+  z-index: 1;
+  top: .65rem;
+  left: .65rem;
+  padding: .2rem .5rem;
+  border-radius: 2px;
+  color: #fff;
+  background: var(--o);
+  font-family: Arial, sans-serif;
+  font-size: .8rem;
+  font-weight: 600;
+}
+
+.panel:focus-visible,
+.meses button:focus-visible,
+.pedir:focus-visible,
+.btn-tema:focus-visible {
+  outline: 3px solid var(--o);
+  outline-offset: 3px;
+}
+
+.filtro {
+  margin: 2rem 0 1rem;
+}
+
+.filtro h2 {
+  margin-bottom: .65rem;
+  font-size: 1.5rem;
+}
+
+.meses {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .4rem;
+}
+
+.meses button {
+  padding: .3rem .65rem;
+  border: 1px solid var(--o);
+  border-radius: 3px;
+  color: var(--o);
+  background: transparent;
+  font: inherit;
+  cursor: pointer;
+}
+
+.meses button.sel {
+  color: #fff;
+  background: var(--o);
+}
+
+.resultado {
+  margin: .75rem 0 0;
+  font-weight: 600;
+}
+
+.detalle {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+  border: 1px solid rgba(40, 40, 32, .2);
+  border-left: 5px solid var(--o);
+  border-radius: 4px;
+  background: color-mix(in srgb, var(--c) 12%, var(--papel));
+  animation: entra .3s ease;
+}
+
+.detalle h2 {
+  color: var(--o);
+  font-size: clamp(2rem, 5vw, 3rem);
+}
+
+.cientifico {
+  margin: .2rem 0 .65rem;
+  font-style: italic;
+}
+
+.resumen {
+  max-width: 65ch;
+  font-size: 1.05rem;
+}
+
+.bloque {
+  margin-top: 1.5rem;
+}
+
+.bloque h3 {
+  margin-bottom: .5rem;
+  color: var(--o);
+  font-size: 1.15rem;
+}
+
+.bloque.dos {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.bloque p {
+  max-width: 55ch;
+  margin: 0;
+}
+
+.beneficios {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.beneficios li {
+  display: flex;
+  flex-direction: column;
+  gap: .2rem;
+  padding-left: .75rem;
+  border-left: 3px solid var(--c);
+}
+
+.calendario {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: .25rem;
+}
+
+.mes {
+  padding: .4rem .1rem;
+  border-radius: 2px;
+  background: rgba(0, 0, 0, .07);
+  font-family: Arial, sans-serif;
+  font-size: .8rem;
+  text-align: center;
+}
+
+.mes.activo {
+  color: #fff;
+  font-weight: 600;
+}
+
+.pedir {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: .65rem 1rem;
+  border-radius: 3px;
+  color: #fff;
+  background: var(--o);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.pie {
+  margin-top: 2.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(40, 40, 32, .2);
+  opacity: .75;
+  text-align: center;
+}
+
+@keyframes entra {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+@media (max-width: 720px) {
+  .app {
+    padding: 1.25rem 1rem 2rem;
+  }
+
+  .galeria {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .bloque.dos,
+  .beneficios {
+    grid-template-columns: 1fr;
+  }
+
+  .calendario {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 460px) {
+  .galeria {
+    grid-template-columns: 1fr;
+  }
+
+  .panel {
+    min-height: 190px;
+  }
+
+  .detalle {
+    padding: 1rem;
+  }
+}
+
+:root[data-tema="dark"] {
+  --papel: #14201a;
+  --tinta: #efeadf;
+  color-scheme: dark;
+}
+
+[data-tema="dark"] .cabecera,
+[data-tema="dark"] .pie {
+  border-color: rgba(239, 234, 223, .2);
+}
+
+[data-tema="dark"] .cabecera h1,
+[data-tema="dark"] .detalle h2,
+[data-tema="dark"] .bloque h3 {
+  color: var(--c);
+}
+
+[data-tema="dark"] .btn-tema,
+[data-tema="dark"] .meses button {
+  border-color: var(--c);
+  color: var(--c);
+}
+
+[data-tema="dark"] .meses button.sel,
+[data-tema="dark"] .sello,
+[data-tema="dark"] .pedir {
+  color: #14201a;
+  background: var(--c);
+}
+
+[data-tema="dark"] .panel-nombre {
+  color: #fff;
+}
+
+[data-tema="dark"] .panel.abierto {
+  outline-color: var(--c);
+}
+
+[data-tema="dark"] .mes {
+  background: rgba(255, 255, 255, .1);
+}
+
+[data-tema="dark"] .mes.activo {
+  color: #14201a;
+}
+
+[data-tema="dark"] .panel:focus-visible,
+[data-tema="dark"] .meses button:focus-visible,
+[data-tema="dark"] .pedir:focus-visible,
+[data-tema="dark"] .btn-tema:focus-visible {
+  outline-color: var(--c);
+}
