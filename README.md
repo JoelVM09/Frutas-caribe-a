@@ -37,4 +37,4 @@ Durante el desarrollo de este reto, nuestro equipo consolidó los siguientes con
 ---
 
 ### 🚀 Enlace de Despliegue
-* **URL del proyecto:** [Si lo suben a internet en plataformas como Vercel o Netlify, peguen el enlace aquí. Si no aplica, puedes poner: *No aplica (Despliegue local con `npm run dev`)*]
+(https://joelvm09.github.io/Frutas-caribe-a/)
